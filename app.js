@@ -1,10 +1,20 @@
-const express = require('express')
+// const path = require('path')
+// const meta = require('meta')
+// const express = require('express')
 import path from 'path'
-const app = express()
-const port = 3000
+import express from 'express'
+import favicon from 'serve-favicon'
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(new URL('.',import.meta.url).pathname.substring(1),"..\Public\index.html"))
+const app = express()
+
+const DIR = new URL('.')
+const PORT = 16000
+const BASE = '';
+
+
+
+app.get(`${BASE}/`, (req, res) => {
+  res.sendFile(path.join(DIR,"/index.html"))
 })
 
 app.listen(port, () => {
