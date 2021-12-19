@@ -1,15 +1,11 @@
-// const path = require('path')
-// const meta = require('meta')
-// const express = require('express')
 import path from 'path'
 import express from 'express'
-import favicon from 'serve-favicon'
 
 const app = express()
 
-const DIR = new URL('.')
+const DIR = new URL('.',import.meta.url).pathname.substring(1)
 const PORT = 16000
-const BASE = '';
+const BASE = ''
 
 
 
@@ -17,6 +13,6 @@ app.get(`${BASE}/`, (req, res) => {
   res.sendFile(path.join(DIR,"/index.html"))
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`)
 })
